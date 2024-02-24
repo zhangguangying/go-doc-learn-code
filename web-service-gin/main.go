@@ -2,6 +2,7 @@ package main
 
 import "net/http"
 import "github.com/gin-gonic/gin"
+import "example.com/web-service-gin/db"
 
 type album struct {
 	ID string `json:"id"`
@@ -26,7 +27,13 @@ func main() {
 }
 
 func getAlbums(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, albums)
+	albums, err := db.GetAlbums()
+	if err != nil {
+		c.IndentedJSON(http.StatusOK, gin.H{"message":err})
+	} else {
+		c.IndentedJSON(http.StatusOK, albums)
+	}
+	
 }
 
 func postAlbums(c *gin.Context) {
