@@ -10,5 +10,6 @@ const (
 )
 
 func main() {
-	fmt.Println(A, B, C)
+	l1 := [256]int{'a': 1, 'b': 2}
+	fmt.Println(l1)
 }
