@@ -10,6 +10,7 @@ const (
 )
 
 func main() {
-	l1 := [256]int{'a': 1, 'b': 2}
-	fmt.Println(l1)
+	m := map[string]int{}
+	m["s"] = 1
+	fmt.Println(m["m"])
 }
